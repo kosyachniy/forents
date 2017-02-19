@@ -1,0 +1,34 @@
+@charset "utf8";
+
+body, div {margin: 0; padding: 0;}
+div {border: 0; display: inline-block;}
+div, a {vertical-align: top;}
+
+body {font: 17px Arial;}
+a, a:visited, a:hover {text-decoration: none; color: #000;}
+
+.a1, .a2 {background: rgba(255, 255, 255, 0.7);}
+
+.a1 {width: 60%; margin: 65px 0 0 19%; padding: 20px;}
+
+.a2 {width: 100%; height: 65px; position: fixed; left: 0; top: 0; font-size: 20px;}
+
+.a3 {width: 65%; height: 65px;}
+.a3 img {height: 100%;}
+.a3 div
+	{
+	width: 200px;
+	height: 43px;
+	padding-top: 22px;
+	text-align: center;
+	border-bottom: solid 5px #edff21;
+	}
+.a3 div:hover
+	{
+	border-bottom: solid 5px #9f9;
+	background: rgba(0, 0, 0, 0.3); //0.6
+	}
+.a4 {width: 35%; height: 43px; margin-top: 22px;}
+
+.a5 {text-align: center; padding: 20px; width: 60%; border: 1px solid #000; background-color: #fff; border-radius: 7px;}
+.a5:hover {background-color: #ff4d00;}
