@@ -7,7 +7,6 @@ div, a, table, tr, td {vertical-align: top;}
 body {font: 17px Arial; zoom: 1; background: #fff;}
 a, a:visited, a:hover {text-decoration: none; color: #000;}
 input {font-size: 20px; border-radius: 15px;}
-input[type="checkbox"] {width: 20px; padding: 20px 0 0 0;}
 input[type="submit"] {background-color: #c0c0c0; border: 1px solid #c0c0c0; padding: 7px; cursor: pointer;}
 input[type="submit"]:hover {background-color: #fff; border: 1px solid #00bfff;}
 textarea:focus, input:focus {outline: none;}
@@ -38,6 +37,8 @@ textarea:focus, input:focus {outline: none;}
 .b1 input {border: 1px solid #c0c0c0;} /* background-color: #c0c0c0; */
 .b1 input:hover, input:active, input:focus {border: 1px solid #00bfff; background-color: #fff;}
 .b1 input:valid:not(input[type="submit"]) {border: 1px solid #00e600;}
+
+input[type="checkbox"] {width: 20px; padding: 20px 0 0 0;}
 
 .c9 {width: 100vw; margin: 0 -5% 0 -6%; left: -5%; /*background: url(/sys/pano/1.jpg) no-repeat center center fixed;
         -webkit-background-size: cover;

@@ -39,11 +39,12 @@ if ($a>=1)
 	</div><div style="display: none;" class="c4">
 		<form action="fltr.php" method="post">
 			<label><input type="checkbox" name="photo"><div>Только с фото</div></label><hr><br>';
-for ($i=1;$i<=3;$i++)
-	print '<div class="main">
-		<!<form action="" method="post" class="a8">
+$cat=array('price','floor','meter');
+$nam=array('Цена','Этаж','Метраж');
+for ($i=0; $i<=count($cat)-1; $i++)
+	print '<div class="main" style="margin: 0 50px 0 50px;">
 			<div class="formCost">
-				<label for="minCost">Цена: от </label><input type="text" id="minCost" value="0">
+				<label for="minCost">'.$nam[$i].' от </label><input type="text" id="minCost" value="0">
 				<label for="maxCost"> до </label> <input type="text" id="maxCost" value="1000">
 			</div><br>
 			<div class="sliderCont">
@@ -52,7 +53,6 @@ for ($i=1;$i<=3;$i++)
 						<a class="ui-slider-handle ui-state-default ui-corner-all" href="http://www.xiper.net/examples/js-plugins/ui/ui-slider/#" style="left: 100%;"></a>
 					</div>
 			</div><br>
-		<!</form>
 	</div>';
 ?>
 	
@@ -69,23 +69,12 @@ pageTracker._trackPageview();
 <div></div>
 
 <?php
-			print '<hr>
-			В квартире есть:<br>
-			<label><input type="checkbox" name="fireplace"><div>Раздельный санузел</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Wi-Fi</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Можно с детьми</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Можно с животными</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Балкон</div></label><br>
-			<label><input type="checkbox" name="fireplace"><div>Кондиционер</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Вентилятор</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Камин</div></label><br>
-			<label><input type="checkbox" name="fireplace"><div>Парковка</div></label><br>
-			<label><input type="checkbox" name="fireplace"><div>Сауна</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Бассейн</div></label><br>
-			<label><input type="checkbox" name="fireplace"><div>Стиральная машина</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Микроволновая печь</div></label>
-			<label><input type="checkbox" name="fireplace"><div>Посудомойная машина</div></label><br>
-			<label><input type="checkbox" name="fireplace"><div>Телефон</div></label><br>
+print '<hr>В квартире есть:<br>';
+$cat=array('bathroom','wifi','child','zoo','balcony','conditioner','fan','fireplace','parking','sauna','pool','washer','microwave','dishwasher','telephone');
+$nam=array('Раздельный санузел','Wi-Fi','Можно с детьми','Можно с животными','Балкон','Кондиционер','Вентилятор','Камин','Парковка','Сауна','Бассейн','Стиральная машина','Микроволновая печь','Посудомоечная машина','Телефон');
+for ($i=0; $i<=count($cat)-1; $i++)
+	print '<label><input type="checkbox" name="'.$cat[$i].'"><div>'.$nam[$i].'</div></label> &nbsp; ';
+print '
 			<input type="submit" value="Поиск">
 	</form></div>
 </div>
@@ -98,7 +87,7 @@ pageTracker._trackPageview();
 	</div></a>
 </div>
 <div class="c5">';
-$c=mysqli_query($db,"SELECT * FROM `note` ORDER BY `id` DESC LIMIT 6");
+$c=mysqli_query($db,"SELECT * FROM `note` WHERE `vip`>='15' ORDER BY `id` DESC LIMIT 6");
 while($d=mysqli_fetch_array($c))
 	{
 	print '<a href="?i='.$d['id'].'"><div style="background-image: url(sys/bck/'.$d['id'].'.jpg);"><div><table><tr><td>';

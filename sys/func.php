@@ -127,9 +127,6 @@ print '<!Doctype html>
     <link rel="stylesheet" type="text/css" href="/sys/main.css">
     <link rel="stylesheet" type="text/css" href="/sys/slider.css">
     <script src="/sys/main.js"></script>
-    <script type="text/javascript" src="/sys/jquery-1.6.1.min.js" ></script>
-    <script type="text/javascript" src="/sys/jquery.ui-slider.js"></script>
-    <script type="text/javascript" src="/sys/jquery.main.js"></script>
   </head>
   <body>
 	<script type=\'text/javascript\'>
@@ -138,6 +135,9 @@ print '<!Doctype html>
 	</script>
 		<center><div class="a1">';
 //<meta name="viewport" content="width=device-width; initial-scale=0.25; maximum-scale=0.25; user-scalable=0;" />
+//    <script type="text/javascript" src="/sys/jquery-1.6.1.min.js" ></script>
+//    <script type="text/javascript" src="/sys/jquery.ui-slider.js"></script>
+//    <script type="text/javascript" src="/sys/jquery.main.js"></script>
 }
 
 function finish()

@@ -1,17 +1,16 @@
 <?php
 include('../sys/func.php');
 start('Наши услуги','about','наши услуги');
-print '<form class="b1">Название<input name="nam"><br>
-	г. <input name="city" style="width: 200px;">, ул. <input name="" style="width: 200px;">, дом <input name="" style="width: 20px;">, кв. <input name="" style="width: 10px;"> (этаж <input name="" style="width: 10px;">)<br>
+?>
+<center><h1>Разместить объявление</h1></center><form class="b1">Название<input name="nam"><br>
+	г. <input name="city" style="width: 200px;">, ул. <input name="" style="width: 200px;">, дом <input name="" style="width: 50px;">, кв. <input name="" style="width: 60px;"> (этаж <input name="" style="width: 20px;">)<br>
 	Ближайшее метро<input name=""><br>
 
 	Тип <квартира / дом / хостел / отель>
 
 	<Загрузка фото><br>
 
-	Количество мест<input name=""><br>
-	Количество комнат<input name=""><br>
-	Метраж<input name=""><br>
+	Количество комнат<input name="" style="width: 30px;">, мест<input name="" style="width: 30px;">, <input name="" style="width: 50px;">м<sup>2</sup><br>
 	<label><input type="checkbox" name="fireplace"><div>Раздельный санузел</div></label>
 			<label><input type="checkbox" name="fireplace"><div>Wi-Fi</div></label>
 			<label><input type="checkbox" name="fireplace"><div>Можно с детьми</div></label>
@@ -30,6 +29,7 @@ print '<form class="b1">Название<input name="nam"><br>
 
 	Цена<input name=""><br>
 
-	<input type="submit" value="Поиск"></form>';
+	<input type="submit" value="Поиск"></form>
+<?php
 finish();
 ?>
