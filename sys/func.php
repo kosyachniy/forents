@@ -1,5 +1,6 @@
 <?php
 header('Content-type: text/html; charset=utf-8');
+session_start();
 
 /*
 Ошибки
@@ -8,16 +9,85 @@ header('Content-type: text/html; charset=utf-8');
 
 function db($a)
 {
-//$db=mysqli_connect('localhost','root','a18988189a',$a);
-$db=mysqli_connect('mysql.hostinger.ru','u696001181_z','asdrqwerty09','u696001181_'.$a);
+$db=mysqli_connect('localhost','root','a18988189a','k'.$a);
+//$db=mysqli_connect('mysql.hostinger.ru','u950474196_k','asdrqwerty09','u950474196_k'.$a);
 if (mysqli_connect_errno()) print 'Ошибка #1: '.mysqli_connect_errno();
 mysqli_query($db,'SET names "utf8"');
 return $db;
 }
 
+function user($b)
+  {
+  $ip=$_SERVER['REMOTE_ADDR'];
+  $cookie=$_COOKIE['user'];
+  
+  if ($_SESSION['auth']!=2 && $_SESSION['auth']!=1)
+  {
+  if ($cookie=='')
+    {
+    if ($_SESSION['auth']!=1 && $_SESSION['auth']!=2)
+      { // Сообщение при первом входе в день
+      $_SESSION['access']=11;
+      $_SESSION['auth']=1;
+      $_SESSION['user']=$ip;
+      }
+    }
+   else
+    {
+    $u=mysqli_query($db,"SELECT * FROM `user` WHERE `user`='$cookie'");
+    if ($u)
+      {
+      while ($a=mysqli_fetch_array($u))
+        if ($_COOKIE['password']==$a['pas'])
+          {
+          $_SESSION['access']=$a['admin'];
+          $_SESSION['user']=$cookie;
+          $_SESSION['auth']=2;
+          $_SESSION['fio']=$a['nam'].' '.$a['fam'];
+          }
+      }
+    }
+    }
+  
+  //1-Администратор, 2-Главный модератер(блокирование пользователей, изменение статей, добавление новостей сайта, служба поддержки), 10-Обычный пользователь, 11-Не авторизованный, 12-Пытался загрузить вирус, 13-Спамит, 14-Нарушает правила сайта(отпугивает людей от сайта, ...), 15-Взламывал сайт.
+  
+  if ($_SESSION['access']>12)
+    print 'Ошибка 2. Вы заблокированы.';
+   else
+    {
+    if ($_SESSION['auth']==2)
+      {
+      if ($b==1)
+        return $_SESSION['user'];
+       elseif ($b==3)
+        return $_SESSION['user'].' <a href="/sys/php/out.php">Выйти</a>';
+       elseif ($b==4)
+        return 'Вы сейчас в пользователе '.$_SESSION['user'];
+       elseif ($b==5)
+        return $_SESSION['access'];
+       elseif ($b==6)
+        return $_SESSION['fio'];
+      }
+     else
+      {
+      if ($b==1)
+        return $ip;
+       elseif ($b==2)
+        return 'Гость';
+       elseif ($b==3)
+        return 'Гость <a href="/set/login/">Войти</a>';
+       elseif ($b==4)
+        return 'Вы не вошли';
+       elseif ($b==5)
+        return $_SESSION['access'];
+      }
+    }
+  }
+
+
 function act($a,$b)
 {
-$db=db('z');
+$db=db('');
 $c=$_SERVER['REMOTE_ADDR'];
 $d=date('d.m.Y H:i:s');
 if ($a==1) $t='Просмотрел';
@@ -34,6 +104,7 @@ if ($a==1) $t='Просмотрел';
   elseif ($a==12) $t='Ошибка';
   elseif ($a==13) $t='Сообщение';
   elseif ($a==14) $t='Обратная связь';
+  elseif ($a==15) $t='Поиск';
 $t.=' '.$b;
 mysqli_query($db,"INSERT INTO `act`(`user`, `cont`, `time`) VALUES ('$c', '$t', '$d');");
 }
@@ -54,30 +125,32 @@ print '<!Doctype html>
     <meta name="description" content="'.$c.'">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <link rel="stylesheet" type="text/css" href="/sys/main.css">
+    <link rel="stylesheet" type="text/css" href="/sys/slider.css">
+    <script src="/sys/main.js"></script>
+    <script type="text/javascript" src="/sys/jquery-1.6.1.min.js" ></script>
+    <script type="text/javascript" src="/sys/jquery.ui-slider.js"></script>
+    <script type="text/javascript" src="/sys/jquery.main.js"></script>
   </head>
-  <body style="zoom: 1; background: url(/sys/bck/'.$d.'.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;">
+  <body>
 	<script type=\'text/javascript\'>
 	if(window.innerWidth<=600)
 	    location.href=\'/m/'.$b.'\';
 	</script>
-		<div class="a1">';
+		<center><div class="a1">';
 //<meta name="viewport" content="width=device-width; initial-scale=0.25; maximum-scale=0.25; user-scalable=0;" />
 }
 
 function finish()
 {
-print '</div>
+print '</div></center>
 		<div class="a2">
 			<div class="a3">
-			<img src="/sys/logo.png">
-			<a href="/?i=0"><div>Главная</div></a>
-			<a href="/service"><div>Наши услуги</div></a>
+			<a href="/?i=0"><img src="/sys/logo.png"></a>
+			<a href="/?i=0"><div>Снять квартиру</div></a>
+			<a href="/service"><div>Разместить</div></a>
 			<a href="/about/"><div>О нас</div></a>
-			</div><div class="a4"><u>+7 981 163 55 78</u> или <u><a href="javascript:void(0)" onClick="javascript:window.open(\'/call.php\', \'Заказать обратный звонок\', \'width=500px, height=250px, left=400px, top=250px, status=no, toolbar=no, menubar=no, scrollbars=yes, resizable=yes\');">заказать звонок</a></u></div>
+			</div><div class="a4"><form action="/sys/search.php" method="post" class="a8"><input placeholder="Поиск" name="search"></form><div>';
+if ($_SESSION['auth']==2) print $_SESSION['user'].' &nbsp;<a href="/sys/out.php">Выйти</a>'; else print 'Гость &nbsp;<a href="/login">Войти</a></div></div>
 		</div>
 </body></html>';
 }

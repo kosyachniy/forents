@@ -1,6 +1,6 @@
 <?php
 include ('sys/func.php');
-$db=db('z');
+$db=db('');
 
 $a=$_POST['name'];
 $b=$_POST['tel'];

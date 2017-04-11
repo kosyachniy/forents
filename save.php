@@ -1,6 +1,6 @@
 <?php
 include ('sys/func.php');
-$db=db('z');
+$db=db('');
 
 $a=$_GET['i'];
 $b=$_POST['cont'];

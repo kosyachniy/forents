@@ -1,34 +1,81 @@
 @charset "utf8";
 
-body, div {margin: 0; padding: 0;}
-div {border: 0; display: inline-block;}
-div, a {vertical-align: top;}
+body, div, table, p, form, input {margin: 0; padding: 0; border: 0;}
+div, table, form, input {border: 0; display: inline-block;}
+div, a, table, tr, td {vertical-align: top;}
 
-body {font: 17px Arial;}
+body {font: 17px Arial; zoom: 1; background: #fff;}
 a, a:visited, a:hover {text-decoration: none; color: #000;}
+input {font-size: 20px; border-radius: 15px;}
+input[type="checkbox"] {width: 20px; padding: 20px 0 0 0;}
+input[type="submit"] {background-color: #c0c0c0; border: 1px solid #c0c0c0; padding: 7px; cursor: pointer;}
+input[type="submit"]:hover {background-color: #fff; border: 1px solid #00bfff;}
+textarea:focus, input:focus {outline: none;}
 
-.a1, .a2 {background: rgba(255, 255, 255, 0.7);}
-
-.a1 {width: 60%; margin: 65px 0 0 19%; padding: 20px;}
-
-.a2 {width: 100%; height: 65px; position: fixed; left: 0; top: 0; font-size: 20px;}
-
-.a3 {width: 65%; height: 65px;}
+.a1 {width: 90%; margin-top: 65px; padding: 0 0 20px 0; text-align: left;} /*padding: 0 10 20 10;*/
+.a2 {background: #000; /*background: rgba(0, 0, 0, 0.6); background: #138808;*/ width: 100%; height: 65px; position: fixed; left: 0; top: 0; font-size: 20px; z-index: 90;}
+.a2, .a2 div, .a2 a { color: #fff;}
+.a3 {width: 56%; height: 65px;}
 .a3 img {height: 100%;}
-.a3 div
-	{
-	width: 200px;
-	height: 43px;
-	padding-top: 22px;
-	text-align: center;
-	border-bottom: solid 5px #edff21;
-	}
-.a3 div:hover
-	{
-	border-bottom: solid 5px #9f9;
-	background: rgba(0, 0, 0, 0.3); //0.6
-	}
-.a4 {width: 35%; height: 43px; margin-top: 22px;}
-
+.a3 div {width: 22%; height: 43px; padding-top: 22px; text-align: center;}
+.a3 div:hover {background: #fff; color: #000; /*background: rgba(0, 0, 0, 0.6); background-color: #0000c2;*/}
+.a4 {width: 41%; height: 43px; margin: 11px 3% 0 0; text-align: right;}
+.a4 form {width: 53%; padding: 0;}
+.a4 input {padding-left: 10px;}
+.a4 div {margin: 11px 0 0 0; width: 47%;}
 .a5 {text-align: center; padding: 20px; width: 60%; border: 1px solid #000; background-color: #fff; border-radius: 7px;}
-.a5:hover {background-color: #ff4d00;}
+.a5:hover {background: #ff4d00;}
+.a1 a > div:not(.c4 a > div) {width: 97%; margin: 15px 0 0 0; border: 1px solid; border-radius: 15px; text-align: left;}
+.a6 {width: 30%; padding: 5px 10px 0 5px;}
+.a6 img {width: 100%; border-radius: 12px;}
+.a7 {width: 65%; padding: 5px;}
+.a7 p {padding: 8px 10px 5px 15px;}
+.a1 > img {width: 96%; margin: 0 2% 0 2%;}
+
+.b1 > div {width: 49%; display: inline-block;}
+.b1 div div {width: 100%; text-align: center; padding: 30px 0 20px 0; font-size: 25px;}
+.b1 input {margin: 5px; padding: 7px; width: 50%; padding: 7px;}
+.b1 input {border: 1px solid #c0c0c0;} /* background-color: #c0c0c0; */
+.b1 input:hover, input:active, input:focus {border: 1px solid #00bfff; background-color: #fff;}
+.b1 input:valid:not(input[type="submit"]) {border: 1px solid #00e600;}
+
+.c9 {width: 100vw; margin: 0 -5% 0 -6%; left: -5%; /*background: url(/sys/pano/1.jpg) no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;*/}
+.c9 > div {width: 90vw; margin: 0 0 0 5%;}
+.c1, .c7 {width: 100%; border: 1px solid; border-radius: 15px; font-size: 20px; margin: 20px 0 0 0;}
+.c1 {height: 40px; position: relative; z-index: 10;}
+.c1 div {padding: 10px 0 10px 0; width: 20%;} /*.c1 > div {height: 20px;}*/
+.c1 > div:first-child {border-radius: 15px 0 0 15px;}
+.c1 > div:last-child {border-radius: 0 15px 15px 0;}
+.c1 > div:hover {border-radius: 0 0 15px 15px; background: #3cc051;}
+.c1 > div:hover:first-child {border-radius: 15px 0 15px 15px;}
+.c1 > div:hover:last-child {border-radius: 0 15px 15px 15px;}
+.c1 div div {display: none; background: #fff; width: 100%; margin: 8px 0 0 0;}
+.c1 div:hover div, .c1 div div:hover {display: block;}
+.c7 {margin: 20px 0 20px 0; z-index: 5;}
+.c8 {width: 75%; height: 40px;}
+.c8 form, .a8 {width: 100%; padding: 0 20px 0 20px; height: 100%;}
+.c8 input, .a8 input {width: 100%; height: 100%; border: 0;}
+.c2 {width: 25%; height: 40px;}
+.c2 div {color: #c0c0c0; border-bottom: 1px dotted #c0c0c0; margin: 10px 0 10px 0; cursor: pointer; height: 20px;}
+.c4 {vertical-align: top; border-top: 1px solid #000; text-align: left; padding: 10px;}
+.c4 div:not(.ui-slider-range) {margin: 4px 0 0 0;}
+.c4 form {width: 100%;}
+.c4 input[type="submit"] {margin: 20px 0 20px 0; width: 100%;}
+.c4 hr {border: 0; border-top: 1px solid #000; width: 100%;}
+.c3 {width: 100%;}
+.c3 a div {width: 50%; height: 300px;}
+.c3 a div div, .c5 a div div {width: 100%; background: rgba(0, 0, 0, 0.6); color: #fff;}
+.c3 a div div {padding: 130px 0 0 0; height: 170px; font-size: 40px; text-align: center;}
+.c3 a div, .c5 a div {background: no-repeat;
+    -moz-background-size: 100%;
+    -webkit-background-size: 100%;
+    -o-background-size: 100%;
+    background-size: 100%;}
+.c5 {width: 100%;}
+.c5 a > div {width: 28vw; margin: 20px 1vw 0 1vw;}
+.c5 a div div {margin: 150px 0 0 0; padding: 10px 1vw 10px 1vw; width: 26vw; height: 63px;}
+.c6 {color: #3cc051; font-size: 40px;}
