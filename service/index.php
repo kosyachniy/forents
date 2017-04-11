@@ -30,6 +30,6 @@ print '<form class="b1">Название<input name="nam"><br>
 
 	Цена<input name=""><br>
 
-	<input type="submit" value="Поиск">';
+	<input type="submit" value="Поиск"></form>';
 finish();
 ?>
