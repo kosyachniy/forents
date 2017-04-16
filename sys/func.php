@@ -150,7 +150,7 @@ print '</div></center>
 			<a href="/service"><div>Разместить</div></a>
 			<a href="/about/"><div>О нас</div></a>
 			</div><div class="a4"><form action="/sys/search.php" method="post" class="a8"><input placeholder="Поиск" name="search"></form><div>';
-if ($_SESSION['auth']==2) print $_SESSION['user'].' &nbsp;<a href="/sys/out.php">Выйти</a>'; else print 'Гость &nbsp;<a href="/login">Войти</a></div></div>
+if ($_SESSION['auth']==2) print '<a href="/cabinet">'.$_SESSION['user'].'</a> &nbsp;<a href="/sys/out.php">Выйти</a>'; else print 'Гость &nbsp;<a href="/login">Войти</a></div></div>
 		</div>
 </body></html>';
 }

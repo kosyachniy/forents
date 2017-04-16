@@ -37,21 +37,22 @@ textarea:focus, input:focus {outline: none;}
 .b1 input {border: 1px solid #c0c0c0;} /* background-color: #c0c0c0; */
 .b1 input:hover, input:active, input:focus {border: 1px solid #00bfff; background-color: #fff;}
 .b1 input:valid:not(input[type="submit"]) {border: 1px solid #00e600;}
+.b1{}:focus::-webkit-input-placeholder {color: transparent}
+:focus::-moz-placeholder          {color: transparent}
+:focus:-moz-placeholder           {color: transparent}
+:focus:-ms-input-placeholder      {color: transparent}
 
 input[type="checkbox"] {width: 20px; padding: 20px 0 0 0;}
+input[type="file"] {border: 0;}
 
-.c9 {width: 100vw; margin: 0 -5% 0 -6%; left: -5%; /*background: url(/sys/pano/1.jpg) no-repeat center center fixed;
-        -webkit-background-size: cover;
-        -moz-background-size: cover;
-        -o-background-size: cover;
-        background-size: cover;*/}
+.c9 {width: 100vw; margin: 0 -5% 0 -6%; left: -5%;}
 .c9 > div {width: 90vw; margin: 0 0 0 5%;}
 .c1, .c7 {width: 100%; border: 1px solid; border-radius: 15px; font-size: 20px; margin: 20px 0 0 0;}
 .c1 {height: 40px; position: relative; z-index: 10;}
 .c1 div {padding: 10px 0 10px 0; width: 20%;} /*.c1 > div {height: 20px;}*/
 .c1 > div:first-child {border-radius: 15px 0 0 15px;}
 .c1 > div:last-child {border-radius: 0 15px 15px 0;}
-.c1 > div:hover {border-radius: 0 0 15px 15px; background: #3cc051;}
+.c1 > div:hover {border-radius: 0 0 15px 15px; background: #c0c0c0;}
 .c1 > div:hover:first-child {border-radius: 15px 0 15px 15px;}
 .c1 > div:hover:last-child {border-radius: 0 15px 15px 15px;}
 .c1 div div {display: none; background: #fff; width: 100%; margin: 8px 0 0 0;}
@@ -80,3 +81,5 @@ input[type="checkbox"] {width: 20px; padding: 20px 0 0 0;}
 .c5 a > div {width: 28vw; margin: 20px 1vw 0 1vw;}
 .c5 a div div {margin: 150px 0 0 0; padding: 10px 1vw 10px 1vw; width: 26vw; height: 63px;}
 .c6 {color: #3cc051; font-size: 40px;}
+
+.c3 div {border-radius: 15px;}

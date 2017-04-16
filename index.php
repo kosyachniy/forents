@@ -44,8 +44,8 @@ $nam=array('Цена','Этаж','Метраж');
 for ($i=0; $i<=count($cat)-1; $i++)
 	print '<div class="main" style="margin: 0 50px 0 50px;">
 			<div class="formCost">
-				<label for="minCost">'.$nam[$i].' от </label><input type="text" id="minCost" value="0">
-				<label for="maxCost"> до </label> <input type="text" id="maxCost" value="1000">
+				<label for="minCost">'.$nam[$i].' от &nbsp; </label><input type="text" id="minCost" value="0">
+				<label for="maxCost"> &nbsp; до &nbsp; </label> <input type="text" id="maxCost" value="1000">
 			</div><br>
 			<div class="sliderCont">
 					<div id="slider" class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all">
@@ -69,9 +69,9 @@ pageTracker._trackPageview();
 <div></div>
 
 <?php
-print '<hr>В квартире есть:<br>';
-$cat=array('bathroom','wifi','child','zoo','balcony','conditioner','fan','fireplace','parking','sauna','pool','washer','microwave','dishwasher','telephone');
-$nam=array('Раздельный санузел','Wi-Fi','Можно с детьми','Можно с животными','Балкон','Кондиционер','Вентилятор','Камин','Парковка','Сауна','Бассейн','Стиральная машина','Микроволновая печь','Посудомоечная машина','Телефон');
+print '<label><input type="checkbox" name="photo"><div>Только с фото</div></label><hr>В квартире есть:<br>';
+$cat=array('bathroom','wifi','child','zoo','balcony','conditioner','fan','fireplace','parking','sauna','pool','washer','microwave','dishwasher','telephone','heating');
+$nam=array('Раздельный санузел','Wi-Fi','Можно с детьми','Можно с животными','Балкон','Кондиционер','Вентилятор','Камин','Парковка','Сауна','Бассейн','Стиральная машина','Микроволновая печь','Посудомоечная машина','Телефон','Индивидуальное отопление');
 for ($i=0; $i<=count($cat)-1; $i++)
 	print '<label><input type="checkbox" name="'.$cat[$i].'"><div>'.$nam[$i].'</div></label> &nbsp; ';
 print '
@@ -97,24 +97,6 @@ while($d=mysqli_fetch_array($c))
 	print '<br>'.$d['room'].'-комнатная, '.$d['metr'].' м<sup>2</sup></td><td class="c6">&nbsp;'.$d['price'].'₽</td></tr></table></div></div></a>';
 	}
 print'</div>';
-	
-	/*
-	$p=$_GET['p'];
-	if (!($p>=1)) $p=1;
-	$p=($p-1)*20;
-	start('Главная','','все объявления');
-	print '<center>';
-	$c=mysqli_query($db,"SELECT * FROM `note` ORDER BY `id` DESC LIMIT $p,20");
-	while($d=mysqli_fetch_array($c))
-		{
-		print '<a href="?i='.$d['id'].'"><div><div class="a6"><img src="load/img/'.$d['id'].'-1.jpg"></div><div class="a7"><p>';
-		if ($d['nam']) print $d['nam'];
-		  else print $d['city'].', '.$d['street'].', '.$d['house'].', '.$d['apartment'];
-		if ($d['metro']) print ' ('.$d['metro'].')';
-		print '</p>'.$d['metr'].' м<sup>2</sup><br>'.$d['room'].'-комнатная<br><br>'.nl2br($d['dop']).'</div></div></a>';
-		}
-		print '</center>';
-	*/
 	}
-finish($b);
+finish();
 ?>

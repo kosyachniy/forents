@@ -20,7 +20,7 @@ print '<div class="b1"><div>
 		<input type="password" name="pas" placeholder="Пароль" readonly onfocus="this.removeAttribute(\'readonly\')" required>
 		<input name="sub_com" type="submit" value="Зарегистрироваться">
       </form><br><br>
-    Нажиая кнопку "Зарегистрироваться", вы автоматически соглашаетесь с <a href="privacy.php">условиями сайта</a>.
+    Нажимая кнопку "Зарегистрироваться", вы автоматически соглашаетесь с <a href="privacy.php">условиями сайта</a>.
 </div><div>
 	<div>Войти</div>
     <form action="login.php" method="post">
